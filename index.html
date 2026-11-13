@@ -169,27 +169,23 @@ nav.main a.lnk:hover::after,nav.main a.lnk.act::after{transform:scaleX(1);transf
 .svc-head h2{font-size:clamp(50px,6.4vw,100px);margin-top:20px}
 .svc-head h2 span{color:var(--yellow)}
 .svc-head p{color:#b6c4d1;font-size:18px}
-.story{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:start}
-.stage{position:sticky;top:110px;height:calc(100vh - 150px);max-height:660px;min-height:480px}
-.stage .shot{position:absolute;inset:0;overflow:hidden;opacity:0;transform:scale(1.06);transition:opacity .8s var(--ease),transform 1.2s var(--ease)}
-.stage .shot.on{opacity:1;transform:none}
-.stage .shot img{width:100%;height:100%;object-fit:cover}
-.stage .shot::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(7,30,49,.85))}
-.stage .big{position:absolute;right:18px;bottom:6px;z-index:2;font-size:170px;line-height:.8;color:transparent;-webkit-text-stroke:2px var(--yellow);opacity:.9}
-.stage .cap{position:absolute;left:24px;bottom:26px;z-index:2}
-.stage .cap .mono{color:var(--yellow)}
-.stage .cap b{display:block;font-size:30px;font-weight:900;text-transform:uppercase;font-stretch:75%;font-variation-settings:"wdth" 75;margin-top:4px}
-.stage .rail{position:absolute;left:-34px;top:0;bottom:0;width:3px;background:rgba(255,255,255,.12)}
-.stage .rail i{position:absolute;left:0;top:0;width:3px;height:33.33%;background:var(--yellow);transition:transform .6s var(--ease)}
-.stage .corner{position:absolute;top:-12px;right:-12px;width:90px;height:90px;border-top:4px solid var(--yellow);border-right:4px solid var(--yellow);z-index:3}
-.svc{min-height:78vh;display:flex;flex-direction:column;justify-content:center;padding:40px 0;border-bottom:1px solid rgba(255,255,255,.1);opacity:.28;transition:opacity .6s var(--ease)}
-.svc:last-child{border-bottom:none}
-.svc.on{opacity:1}
+.svc-list{display:flex;flex-direction:column;gap:28px}
+.svc{display:grid;grid-template-columns:1fr 1fr;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.1);transition:border-color .4s,background .4s}
+.svc:hover{border-color:rgba(255,237,0,.5);background:rgba(255,255,255,.05)}
+.svc:nth-child(even) .media{order:2}
+.svc .media{position:relative;overflow:hidden;min-height:100%;clip-path:inset(0 0 0 100%);transition:clip-path 1.1s var(--ease)}
+.svc:nth-child(even) .media{clip-path:inset(0 100% 0 0)}
+.svc.in .media{clip-path:inset(0 0 0 0)!important}
+.svc .media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.svc:hover .media img{transform:scale(1.06)}
+.svc .media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(7,30,49,.8))}
+.svc .bign{position:absolute;right:20px;bottom:4px;z-index:2;font-size:150px;line-height:.8;color:transparent;-webkit-text-stroke:2px var(--yellow)}
+.svc .tagline{position:absolute;left:0;top:0;z-index:2;background:var(--yellow);color:var(--ink);padding:10px 14px}
+.svc .body{padding:56px 54px}
 .svc .n{display:flex;align-items:center;gap:14px;color:var(--yellow)}
 .svc .n::after{content:"";height:1px;width:60px;background:var(--yellow)}
-.svc h3{font-size:clamp(44px,4.6vw,68px);margin:16px 0 24px}
-.svc p{color:#c3cfda;margin-bottom:16px;font-size:17px;max-width:54ch}
-.svc .mob{display:none}
+.svc h3{font-size:clamp(40px,4vw,60px);margin:16px 0 22px}
+.svc p{color:#c3cfda;margin-bottom:16px;font-size:16.5px}
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin:24px 0 32px}
 .chip{font-family:var(--mono);font-size:12px;letter-spacing:.06em;padding:8px 12px;border:1px solid rgba(255,255,255,.35);text-transform:uppercase;color:#e3e9ef;transition:all .3s}
 .chip.y{background:var(--yellow);border-color:var(--yellow);color:var(--ink)}
@@ -202,10 +198,13 @@ nav.main a.lnk:hover::after,nav.main a.lnk.act::after{transform:scaleX(1);transf
 .proc-head p{max-width:36ch;color:var(--ink-2)}
 .pipe{position:relative;display:grid;grid-template-columns:repeat(5,1fr);gap:0}
 .pipe .tube{position:absolute;left:0;right:0;top:34px;height:16px;background:repeating-linear-gradient(90deg,#c8d6e2 0 28px,#b7c8d6 28px 32px);border-top:2px solid #e6eef4;border-bottom:2px solid #9fb3c4}
-.pipe .fill{position:absolute;left:0;top:34px;height:16px;width:100%;background:repeating-linear-gradient(90deg,var(--blue) 0 28px,#155f95 28px 32px);transform-origin:left;transform:scaleX(var(--p,0));border-top:2px solid var(--blue-2);border-bottom:2px solid #0d4a75}
+.pipe .fill{position:absolute;left:0;top:34px;height:16px;width:100%;background:repeating-linear-gradient(90deg,var(--blue) 0 28px,#155f95 28px 32px);transform-origin:left;transform:scaleX(0);transition:transform 2.4s var(--ease);border-top:2px solid var(--blue-2);border-bottom:2px solid #0d4a75}
 .station{position:relative;z-index:2;padding-right:22px}
 .station .node{width:84px;height:84px;border-radius:50%;background:var(--white);border:3px solid var(--ink);display:grid;place-items:center;font-family:var(--mono);font-weight:600;font-size:15px;transition:all .5s var(--ease)}
 .station.lit .node{background:var(--yellow);transform:scale(1.08)}
+.pipe.go .fill{transform:scaleX(1)}
+.pipe.go .station .node{background:var(--yellow);transform:scale(1.08)}
+.pipe.go .station:nth-of-type(2) .node{transition-delay:.5s}.pipe.go .station:nth-of-type(3) .node{transition-delay:1s}.pipe.go .station:nth-of-type(4) .node{transition-delay:1.5s}.pipe.go .station:nth-of-type(5) .node{transition-delay:2s}
 .station b{display:block;font-size:21px;margin-top:22px;line-height:1.2}
 .station span{font-size:14.5px;color:#5c646d;display:block;margin-top:6px}
 
@@ -297,14 +296,16 @@ footer{background:var(--white);padding-top:70px}
   .reg-item{border-right:none;border-bottom:1px solid #2c3238}
   .about-grid{grid-template-columns:1fr;gap:50px}
   .svc-head{grid-template-columns:1fr;gap:20px;margin-bottom:40px}
-  .story{grid-template-columns:1fr;gap:0}
-  .stage{display:none}
-  .svc{min-height:0;opacity:1;padding:50px 0}
-  .svc .mob{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;margin-bottom:28px}
+  .svc{grid-template-columns:1fr}
+  .svc:nth-child(even) .media{order:0}
+  .svc .media{min-height:0;aspect-ratio:4/3}
+  .svc .body{padding:34px 24px 38px}
+  .svc .bign{font-size:110px}
   .proc-head{flex-direction:column;align-items:start}
   .pipe{grid-template-columns:1fr;gap:26px}
   .pipe .tube,.pipe .fill{left:39px;right:auto;top:0;bottom:0;width:6px;height:auto;background:#c8d6e2;border:none}
-  .pipe .fill{background:var(--blue);transform:scaleY(var(--p,0));transform-origin:top}
+  .pipe .fill{background:var(--blue);transform:scaleY(0);transform-origin:top}
+  .pipe.go .fill{transform:scaleY(1)}
   .station{display:grid;grid-template-columns:84px 1fr;gap:20px;align-items:center}
   .station b{margin-top:0}
   .review .wrap{grid-template-columns:1fr}
@@ -356,7 +357,7 @@ footer{background:var(--white);padding-top:70px}
   *{animation:none!important;transition:none!important}
   .rv{opacity:1;transform:none}
   .hero h1 .ln > span,.hero .sub,.hero .ctas{transform:none;opacity:1}
-  .hero-photo,.about-photo .frame,.cityline img{clip-path:none}
+  .hero-photo,.about-photo .frame,.cityline img,.svc .media{clip-path:none!important}
 }
 </style>
 </head>
@@ -475,46 +476,42 @@ footer{background:var(--white);padding-top:70px}
       <p>Duct, furnace and dryer vent cleaning for homes and businesses across Calgary and its surrounding areas.</p>
     </div>
 
-    <div class="story">
-      <div class="stage" aria-hidden="true">
-        <div class="rail"><i></i></div>
-        <div class="corner"></div>
-        <figure class="shot on" data-k="duct"><img src="images/duct-cleaning.jpg" alt=""></figure>
-        <figure class="shot" data-k="furnace"><img src="images/furnace-cleaning.jpg" alt=""></figure>
-        <figure class="shot" data-k="dryervent"><img src="images/dryer-vent-cleaning.jpg" alt=""></figure>
-        <div class="display big">01</div>
-        <div class="cap"><span class="mono">Now viewing</span><b>Duct Cleaning</b></div>
-      </div>
-
+    <div class="story-rows">
       <div class="svc-list">
         <article class="svc on" id="duct" data-k="duct" data-n="01" data-t="Duct Cleaning">
-          <img class="mob" src="images/duct-cleaning.jpg" alt="Rotary brush and vacuum hose cleaning inside an air duct">
+          <div class="media"><img src="images/duct-cleaning.jpg" alt="Rotary brush and vacuum hose cleaning inside an air duct"><span class="display bign">01</span><span class="tagline mono">Duct Cleaning</span></div>
+          <div class="body">
           <span class="n mono">01 / Services</span>
           <h3 class="display">Duct Cleaning</h3>
           <p>At Kleenair, we prioritize the cleanliness of your home or business' air ducts. Our advanced cleaning service effectively removes dust, allergens, and pollutants, ensuring improved indoor air quality and HVAC efficiency.</p>
           <p>Using state-of-the-art equipment, our skilled technicians meticulously inspect, vacuum, and clean your ducts, minimizing disruption to your space. Experience the difference in air quality and system performance with Kleenair's expert service, tailored for your comfort and convenience.</p>
           <div class="chips"><span class="chip y">Dust</span><span class="chip y">Allergens</span><span class="chip y">Pollutants</span><span class="chip">Indoor air quality</span><span class="chip">HVAC efficiency</span></div>
           <div><a class="btn btn-y" href="#contact" data-svc="Duct Cleaning">Request a Quote <span class="arr">&rarr;</span></a></div>
+        </div>
         </article>
 
         <article class="svc" id="furnace" data-k="furnace" data-n="02" data-t="Furnace Cleaning">
-          <img class="mob" src="images/furnace-cleaning.jpg" alt="Technician brushing and vacuuming a furnace blower">
+          <div class="media"><img src="images/furnace-cleaning.jpg" alt="Technician brushing and vacuuming a furnace blower"><span class="display bign">02</span><span class="tagline mono">Furnace Cleaning</span></div>
+          <div class="body">
           <span class="n mono">02 / Services</span>
           <h3 class="display">Furnace Cleaning</h3>
           <p>Your furnace is essential for maintaining warmth and comfort in your home, particularly during colder seasons. However, regular usage can lead to the accumulation of dirt and contaminants, potentially affecting its efficiency and safety.</p>
           <p>Our skilled technicians conduct thorough cleaning, targeting key components like the furnace blower and heat exchangers to remove any buildup that could hinder performance. A clean furnace operates more efficiently, reducing energy costs, and distributes heat evenly throughout your home. Regular cleaning can extend your furnace's lifespan, prevent costly repairs, and mitigate fire hazards and carbon monoxide risks.</p>
           <div class="chips"><span class="chip y">Furnace blower</span><span class="chip y">Heat exchangers</span><span class="chip">Lower energy costs</span><span class="chip">Even heat</span><span class="chip">Longer lifespan</span><span class="chip">Fire &amp; CO safety</span></div>
           <div><a class="btn btn-y" href="#contact" data-svc="Furnace Cleaning">Request a Quote <span class="arr">&rarr;</span></a></div>
+        </div>
         </article>
 
         <article class="svc" id="dryervent" data-k="dryervent" data-n="03" data-t="Dryer Vent Cleaning">
-          <img class="mob" src="images/dryer-vent-cleaning.jpg" alt="Technician clearing lint from a dryer vent duct">
+          <div class="media"><img src="images/dryer-vent-cleaning.jpg" alt="Technician clearing lint from a dryer vent duct"><span class="display bign">03</span><span class="tagline mono">Dryer Vent Cleaning</span></div>
+          <div class="body">
           <span class="n mono">03 / Services</span>
           <h3 class="display">Dryer Vent Cleaning</h3>
           <p>Dryer vent cleaning is a crucial yet often overlooked service that not only reduces fire risks but also improves dryer efficiency. Lint and debris buildup in dryer vents can lead to hazardous conditions and longer drying times.</p>
           <p>Kleenair's professional vent cleaning ensures unobstructed airflow, optimizing dryer performance. With specialized tools, our technicians thoroughly clean vents from the dryer to the exterior, cutting down on drying times, energy usage, and wear on the appliance.</p>
           <div class="chips"><span class="chip y">Dryer to exterior</span><span class="chip">Reduced fire risk</span><span class="chip">Faster drying</span><span class="chip">Less energy use</span><span class="chip">Less appliance wear</span></div>
           <div><a class="btn btn-y" href="#contact" data-svc="Dryer Vent Cleaning">Request a Quote <span class="arr">&rarr;</span></a></div>
+        </div>
         </article>
       </div>
     </div>
@@ -644,16 +641,9 @@ footer{background:var(--white);padding-top:70px}
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.15});
   document.querySelectorAll('.rv,.review').forEach(function(el){io.observe(el)});
 
-  /* services: sticky image follows the service being read */
-  var svcs=[].slice.call(document.querySelectorAll('.svc')),shots=document.querySelectorAll('.shot');
-  var big=document.querySelector('.stage .big'),capb=document.querySelector('.stage .cap b'),rail=document.querySelector('.stage .rail i');
-  var sio=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;var k=e.target.dataset.k;
-    svcs.forEach(function(s){s.classList.toggle('on',s===e.target)});
-    shots.forEach(function(s){s.classList.toggle('on',s.dataset.k===k)});
-    big.textContent=e.target.dataset.n;capb.textContent=e.target.dataset.t;
-    rail.style.transform='translateY('+(svcs.indexOf(e.target)*100)+'%)';
-  })},{rootMargin:'-45% 0px -45% 0px'});
-  svcs.forEach(function(s){sio.observe(s)});
+  document.querySelectorAll('.svc').forEach(function(el){io.observe(el)});
+  var pio=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('go');pio.unobserve(e.target)}})},{threshold:.3});
+  pio.observe(document.querySelector('.pipe'));
 
   /* quote buttons prefill the form */
   var subj=document.getElementById('f-subject');
@@ -677,9 +667,6 @@ footer{background:var(--white);padding-top:70px}
       grille.style.setProperty('--gy',(y*.18)+'px');
       cbg.style.setProperty('--cy',(contact.getBoundingClientRect().top*-.15)+'px');
     }
-    var r=pipe.getBoundingClientRect(),p=Math.min(1,Math.max(0,(innerHeight*.85-r.top)/(r.height+innerHeight*.3)));
-    pipe.style.setProperty('--p',p.toFixed(3));
-    stations.forEach(function(s,i){s.classList.toggle('lit',p>=i/stations.length+.04)});
     var cur=-1;secs.forEach(function(s,i){if(s.getBoundingClientRect().top<innerHeight*.4)cur=i});
     links.forEach(function(l,i){l.classList.toggle('act',i===cur)});
     ticking=false;
